@@ -1,14 +1,7 @@
 import pandas as pd
 import numpy as np
 
-# ============================================================
-# PARTE 1: Diccionario crudo con listas paralelas
-# ------------------------------------------------------------
-# Cada clave es un atributo (una futura columna) y cada valor es
-# una lista con un dato por objeto, en el MISMO ORDEN que la
-# lista "objeto". np.nan se usa cuando no se relevo ese dato
-# para ese objeto en particular.
-# ============================================================
+# Definicion del diccionario crudo recabado en la dinamica
 datos_objetos = {
     "objeto_id": [0, 1, 2, 3, 4, 5, 6, 7, 8],
     "objeto": [
@@ -33,23 +26,10 @@ datos_objetos = {
     "elastico": [False, False, False, False, False, False, False, False, True],
 }
 
-# ============================================================
-# PARTE 2: Transformacion a DataFrame
-# ------------------------------------------------------------
-# pd.DataFrame junta todas las listas del diccionario en una
-# tabla: cada clave del diccionario pasa a ser una columna, y
-# cada posicion de las listas pasa a ser una fila (un objeto).
-# ============================================================
+# transformacion a dataframe
 df_objetos = pd.DataFrame(datos_objetos)
 
-# ============================================================
-# PARTE 3: Convertir tipos categoricos y ordinales
-# ------------------------------------------------------------
-# "forma" y "textura" son categorias SIN orden entre si.
-# "rigidez" es ordinal: blando < medio < rigido (por eso se usa
-# pd.Categorical con "categories" en ese orden y ordered=True,
-# lo que permite despues comparar con < y > entre objetos).
-# ============================================================
+# Convertir tipos categoricos y ordinales
 df_objetos["forma"] = df_objetos["forma"].astype("category")
 df_objetos["textura"] = df_objetos["textura"].astype("category")
 df_objetos["rigidez"] = pd.Categorical(
@@ -58,12 +38,4 @@ df_objetos["rigidez"] = pd.Categorical(
     ordered=True,
 )
 
-# ============================================================
-# PARTE 4: Mostrar resultados
-# ------------------------------------------------------------
-# Solo se ejecuta si corres este archivo directamente.
-# ============================================================
-if __name__ == "__main__":
-    print(df_objetos)
-    print("\nTipos de dato por columna:")
-    print(df_objetos.dtypes)
+print(df_objetos)
