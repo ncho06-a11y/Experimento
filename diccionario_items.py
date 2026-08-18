@@ -38,4 +38,7 @@ df_objetos["rigidez"] = pd.Categorical(
     ordered=True,
 )
 
-print(df_objetos)
+# Mostrar la tabla completa, sin cortar columnas
+pd.set_option("display.max_columns", None)
+pd.set_option("display.width", None)
+print(df_objetos.to_string(index=False))
