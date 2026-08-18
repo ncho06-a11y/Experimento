@@ -3,6 +3,7 @@ objetos = {
     "cubo rubik": ["movimiento", "cuadrado", "liso"],
     "peluche": ["liso", "blando"],
     "hexagono": ["liso", "duro"],
+    "libro": ["liso", "rectangular"],
     "cable": ["cilindrico", "rigido"],
     "lapicera": ["cilindrico", "rigido"],
     "caja plastica": ["blando", "movil", "ruidoso"],
